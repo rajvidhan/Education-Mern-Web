@@ -9,6 +9,6 @@ export const resetPassword = `${host}/auth/reset-password`;
 export const signup = `${host}/auth/signup`;
 export const login =`${host}/auth/login`;
 
-
+console.log("host is login ",login)
 
 
