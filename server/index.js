@@ -24,10 +24,11 @@ app.use(express.json());
 app.use(cookieParser())
 app.use(
 	cors({
-		origin:"https://education-mern-web-mr4f.vercel.app",
+		origin:"https://education-mern-web-l75k.vercel.app",
 		credentials:true,
 	})
 );
+
 
 const PORT = process.env.PORT || 4000;
 
