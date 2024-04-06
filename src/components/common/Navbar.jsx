@@ -29,17 +29,21 @@ const Navbar = () => {
   // fetch the data from backend
   //self made
 
+  const fetchCatalog = async()=>{
+
+    setLoading(true);
+    try {
+      console.log("jai shree ram")
+      const res = await apiConnector("GET",categories.CATEGORIES_API,null);
+      console.log("response is ",res)
+      setItems(res.data.data);
+    } catch (error) {
+      console.log("Could not fetch Categories.", error);
+    }
+    setLoading(false);
+   }
   useEffect(() => {
-    (async () => {
-      setLoading(true);
-      try {
-        const res = await apiConnector("GET", categories.CATEGORIES_API);
-        setItems(res.data.data);
-      } catch (error) {
-        console.log("Could not fetch Categories.", error);
-      }
-      setLoading(false);
-    })();
+    fetchCatalog();
   }, []);
 
   return (
@@ -82,7 +86,7 @@ const Navbar = () => {
                      rounded bg-white  translate-x-[80%]"
                       ></div>
 
-                      {items.length ? (
+                      {items && items.length ? (
                         items.map((category, index) => (
                           <Link
                             key={index}

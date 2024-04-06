@@ -1,5 +1,5 @@
 
-const BASE_URL ="https://ed-web-site-jdxm66yhw-lochansharma0902s-projects.vercel.app/api/v1"
+const BASE_URL ="http://localhost:4000/api/v1"
 // SETTINGS PAGE API
 export const settingsEndpoints = {
     UPDATE_DISPLAY_PICTURE_API:BASE_URL + "/profile/updateDisplayPicture",

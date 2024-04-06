@@ -1,6 +1,6 @@
 const Category = require("../models/Category");
 function getRandomInt(max) {
-  return Math.floor(Math.random() * max)
+  return Math.floor(Math.random() * max);
 }
 //create tag ka handler function
 exports.createCategory = async (req, res) => {
@@ -42,15 +42,16 @@ exports.createCategory = async (req, res) => {
 //get all the Categories
 exports.showAllCategories = async (req, res) => {
   try {
+    console.log("hello vidhan");
     const allCategories = await Category.find(
       {},
       { name: true, description: true }
     );
-    res
+    return res
       .json({
         success: true,
         msg: "All Categories return successfully ...",
-        data:allCategories,
+        data: allCategories,
       })
       .status(200);
   } catch (err) {
@@ -69,13 +70,13 @@ exports.categoryPageDetails = async (req, res) => {
   try {
     //getcategoryid
     const { categoryId } = req.body;
-    console.log("kya hall chal")
+    console.log("kya hall chal");
     //fetch the all courses according to category id
     const selectedCategory = await Category.findById(categoryId)
       .populate({
         path: "course",
         match: { status: "Published" },
-       
+
         populate: "ratingAndReviews",
       })
       .exec();
@@ -111,15 +112,14 @@ exports.categoryPageDetails = async (req, res) => {
         populate: {
           path: "instructor",
         },
-      
       })
       .exec();
 
-      const allCourses = allCategories.flatMap((category) => category.course)
-      
-      const mostSellingCourses = allCourses
-        .sort((a, b) => b.sold - a.sold)
-        .slice(0, 10)
+    const allCourses = allCategories.flatMap((category) => category.course);
+
+    const mostSellingCourses = allCourses
+      .sort((a, b) => b.sold - a.sold)
+      .slice(0, 10);
     //return response
     res.status(200).json({
       success: true,
