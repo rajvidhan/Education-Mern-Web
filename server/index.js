@@ -24,7 +24,8 @@ app.use(express.json());
 app.use(cookieParser())
 app.use(
 	cors({
-		origin:"https://education-mern-web-l75k.vercel.app",
+		origin:"",
+		
 		credentials:true,
 	})
 );
