@@ -1,6 +1,6 @@
 
-const BASE_URL = "http://localhost:4000/api/v1"
-console.log("the back url",process.env.REACT_APP_API_KEY);
+const BASE_URL = process.env.REACT_APP_API_KEY;
+console.log("the back url",BASE_URL);
 // SETTINGS PAGE API
 export const settingsEndpoints = {
     UPDATE_DISPLAY_PICTURE_API:BASE_URL + "/profile/updateDisplayPicture",
