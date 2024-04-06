@@ -22,13 +22,7 @@ require("./config/database").connectwithDB();
 //middlewares
 app.use(express.json());
 app.use(cookieParser())
-app.use(
-	cors({
-		origin:"",
-		
-		credentials:true,
-	})
-);
+app.use(cors());
 
 
 const PORT = process.env.PORT || 4000;
