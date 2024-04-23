@@ -99,6 +99,8 @@ const Navbar = () => {
                             to={`/catalog/${category.name
                               .split(" ")
                               .join("-")
+                              .split("/")
+                              .join("-")
                               .toLowerCase()}`}
                           >
                             <p className="border-b-richblack-300  hover:text-white hover:rounded-lg hover:bg-richblack-900 hover:bg-opacity-25 text-richblack-900  font-bold font-serif px-2 py-2 ">

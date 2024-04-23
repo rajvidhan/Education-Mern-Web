@@ -8,6 +8,8 @@ const { uploadImageToCloudinary } = require("../utils/imageUploader");
 const CourseProgress = require("../models/courseProgress")
 //CREATE THE COURSE
 exports.createCourse = async (req, res) => {
+
+  console.log("fsdfnbhfdjhkk")
   try {
     //fetch the data
     let {
@@ -22,11 +24,13 @@ exports.createCourse = async (req, res) => {
     } = req.body;
 
 
+  
 
     //get thumbnail
     const thumbnail = req.files.thumbnailImage;
     const tag = JSON.parse(_tag)
-    const instructions = JSON.parse(_instructions)
+    const instructions = JSON.parse(_instructions);
+  
     //validation
     if (
       !courseName ||
